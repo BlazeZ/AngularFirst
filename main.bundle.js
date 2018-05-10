@@ -135,12 +135,16 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__recipes_recip_start_recip_start_component__ = __webpack_require__("./src/app/recipes/recip-start/recip-start.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__recipes_recipe_edit_recipe_edit_component__ = __webpack_require__("./src/app/recipes/recipe-edit/recipe-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__shared_data_storage_service__ = __webpack_require__("./src/app/shared/data-storage.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__recipes_recipe_service__ = __webpack_require__("./src/app/recipes/recipe.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -179,11 +183,11 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_14__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* ReactiveFormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_13__shopping_list_shopping_list_service__["a" /* ShoppingService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_13__shopping_list_shopping_list_service__["a" /* ShoppingService */], __WEBPACK_IMPORTED_MODULE_18__recipes_recipe_service__["a" /* RecipeService */], __WEBPACK_IMPORTED_MODULE_17__shared_data_storage_service__["a" /* DataStorageService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -204,7 +208,7 @@ module.exports = ""
 /***/ "./src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light \">\n \n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/\">Repice Book</a>\n    </div>\n  \n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li routerLinkActive=\"active\">\n              <a class=\"nav-item nav-link\" routerLink=\"recipes\">\n                Recipes <span class=\"sr-only\">(current)</span></a></li>\n            <li routerLinkActive=\"active\">\n                <a class=\"nav-item nav-link\" routerLink=\"shopping-list\">\n              Shopping List</a></li>\n        </ul>\n\n        <ul class=\"navbar-nav navbar-right \">\n            <li class=\"nav-item dropdown\">\n                <a class=\"nav-link dropdown-toggle\"\n                  id=\"manageMenu\" data-toggle=\"dropdown\" \n                  aria-haspopup=\"true\"\n                  aria-expanded=\"true\" \n                  appDropdown>Manage</a>\n                <ul class=\"dropdown-menu\" >\n                  <li><a style=\"cursor: pointer;\">Save Data</a></li>\n                  <li><a style=\"cursor: pointer;\">Fetch Data</a></li>\n                </ul>\n            </li>\n        </ul>\n    </div>\n\n    \n  </div>\n\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light \">\n \n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/\">Recipe Book</a>\n    </div>\n  \n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n        <ul class=\"navbar-nav mr-auto\">\n            <li routerLinkActive=\"active\">\n              <a class=\"nav-item nav-link\" routerLink=\"recipes\">\n                Recipes <span class=\"sr-only\">(current)</span></a></li>\n            <li routerLinkActive=\"active\">\n                <a class=\"nav-item nav-link\" routerLink=\"shopping-list\">\n              Shopping List</a></li>\n        </ul>\n\n        <!--\n        <ul class=\"navbar-nav navbar-right disabled\">\n            <li class=\"nav-item dropdown disabled\">\n                <a class=\"nav-link dropdown-toggle\"\n                  id=\"manageMenu\" data-toggle=\"dropdown\" \n                  aria-haspopup=\"true\"\n                  aria-expanded=\"true\" \n                  appDropdown>Manage</a>\n                <ul class=\"dropdown-menu \" >\n                  <li><a style=\"cursor: pointer;\" (click)=\"onSaveData()\" >Save Data</a></li>\n                  <li><a style=\"cursor: pointer;\" (click)=\"onFetchData()\" >Fetch Data</a></li>\n                </ul>\n            </li>\n        </ul>\n      -->\n    </div>\n\n    \n  </div>\n\n</nav>"
 
 /***/ }),
 
@@ -214,6 +218,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light \">
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_data_storage_service__ = __webpack_require__("./src/app/shared/data-storage.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -224,10 +229,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(dataStorageService) {
+        this.dataStorageService = dataStorageService;
     }
-    HeaderComponent.prototype.ngOnInit = function () {
+    HeaderComponent.prototype.onSaveData = function () {
+        this.dataStorageService.storeRecipes()
+            .subscribe(function (response) {
+            console.log(response);
+        });
+    };
+    HeaderComponent.prototype.onFetchData = function () {
+        this.dataStorageService.getRecipes();
     };
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -235,7 +249,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/header/header.component.html"),
             styles: [__webpack_require__("./src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_data_storage_service__["a" /* DataStorageService */]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -304,7 +318,7 @@ module.exports = ""
 /***/ "./src/app/recipes/recipe-edit/recipe-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form [formGroup]=\"recipeForm\" (ngSubmit)=\"onSubmit()\">\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <button type=\"submit\" class=\"btn btn-success\">Save</button>\n          <button type=\"button\" class=\"btn btn-danger\">Cancel</button>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <div class=\"form-group\">\n            <label for=\"name\">Name</label>\n            <input \n            type=\"text\"\n            id=\"name\"\n            class=\"form-control\"\n            formControlName=\"name\">\n          </div>\n      </div>\n      </div>\n\n      <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"form-group\">\n              <label for=\"imagePath\">Image URL</label>\n              <input \n              type=\"text\"\n              id=\"imagePath\"\n              formControlName=\"imagePath\"\n              class=\"form-control\">\n            </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <img src=\"\" class=\"img-responsive\">\n        </div>\n      </div>\n\n      \n      <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"form-group\">\n              <label for=\"description\">Description</label>\n              <textarea \n              type=\"text\"\n              id=\"description\"\n              formControlName=\"description\"\n              class=\"form-control\"\n              row=6></textarea>\n            </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n          <div class=\"col-sm-12\" formArrayName=\"ingredients\">\n            <label>Ingredient</label>\n            <div class=\"form-group\">\n              <div class=\"row\" \n              *ngFor=\"let ingrendientC of recipeForm.get('ingredients').controls; let i = index\"\n              [formGroupName]=\"i\" style=\"margin-top: 10px\">\n                \n                <div class=\"col-sm-8\">\n                  <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  placeholder=\"name\"\n                  formControlName=\"name\">\n                </div>\n\n                <div class=\"col-sm-2\">\n                  <input\n                  type=\"number\"\n                  class=\"form-control\"\n                  placeholder=1\n                  formControlName=\"amount\">\n                </div>\n\n                <div class=\"col-sm-2\">\n                   <button class=\"btn btn-danger\" (click)=\"onDeleteIngredient(i)\">X</button>\n                </div>\n                \n              </div>\n\n              <hr>\n              <div class=\"row\">\n                <div class=\"col-sm-12\">\n                  <button\n                    type=\"button\"\n                    class=\"btn btn-success\"\n                    (click)=\"onAddIngredient()\">Add Ingredient</button>\n                </div>\n              </div>\n            </div>\n        </div>\n      </div>\n\n    </form>\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form [formGroup]=\"recipeForm\" (ngSubmit)=\"onSubmit()\">\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <button type=\"submit\" class=\"btn btn-success\"  >Save</button>\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"onCancel()\" >Cancel</button>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <div class=\"form-group\">\n            <label for=\"name\">Name</label>\n            <input \n            type=\"text\"\n            id=\"name\"\n            class=\"form-control\"\n            formControlName=\"name\">\n          </div>\n      </div>\n      </div>\n\n      <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"form-group\">\n              <label for=\"imagePath\">Image URL</label>\n              <input \n              type=\"text\"\n              id=\"imagePath\"\n              formControlName=\"imagePath\"\n              class=\"form-control\">\n            </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <img src=\"\" class=\"img-responsive\">\n        </div>\n      </div>\n\n      \n      <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"form-group\">\n              <label for=\"description\">Description</label>\n              <textarea \n              type=\"text\"\n              id=\"description\"\n              formControlName=\"description\"\n              class=\"form-control\"\n              row=6></textarea>\n            </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n          <div class=\"col-sm-12\" formArrayName=\"ingredients\">\n            <label>Ingredient</label>\n            <div class=\"form-group\">\n              <div class=\"row\" \n              *ngFor=\"let ingrendientC of recipeForm.get('ingredients').controls; let i = index\"\n              [formGroupName]=\"i\" style=\"margin-top: 10px\">\n                \n                <div class=\"col-sm-8\">\n                  <input\n                  type=\"text\"\n                  class=\"form-control\"\n                  placeholder=\"name\"\n                  formControlName=\"name\">\n                </div>\n\n                <div class=\"col-sm-2\">\n                  <input\n                  type=\"number\"\n                  class=\"form-control\"\n                  placeholder=1\n                  formControlName=\"amount\">\n                </div>\n\n                <div class=\"col-sm-2\">\n                   <button class=\"btn btn-danger\" (click)=\"onDeleteIngredient(i)\">X</button>\n                </div>\n                \n              </div>\n\n              <hr>\n              <div class=\"row\">\n                <div class=\"col-sm-12\">\n                  <button\n                    type=\"button\"\n                    class=\"btn btn-success\"\n                    (click)=\"onAddIngredient()\">Add Ingredient</button>\n                </div>\n              </div>\n            </div>\n        </div>\n      </div>\n\n    </form>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -331,9 +345,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var RecipeEditComponent = /** @class */ (function () {
-    function RecipeEditComponent(route, recipeService) {
+    function RecipeEditComponent(route, recipeService, router) {
         this.route = route;
         this.recipeService = recipeService;
+        this.router = router;
         this.editMode = false;
     }
     RecipeEditComponent.prototype.ngOnInit = function () {
@@ -348,6 +363,13 @@ var RecipeEditComponent = /** @class */ (function () {
     };
     RecipeEditComponent.prototype.onSubmit = function () {
         console.log(this.recipeForm);
+        if (this.editMode) {
+            this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+        }
+        else {
+            this.recipeService.addRecipe(this.recipeForm.value);
+        }
+        this.onCancel();
     };
     RecipeEditComponent.prototype.initForm = function () {
         var recipeName = '';
@@ -389,6 +411,9 @@ var RecipeEditComponent = /** @class */ (function () {
             ])
         }));
     };
+    RecipeEditComponent.prototype.onCancel = function () {
+        this.router.navigate(['../'], { relativeTo: this.route });
+    };
     RecipeEditComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-recipe-edit',
@@ -396,7 +421,7 @@ var RecipeEditComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/recipes/recipe-edit/recipe-edit.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_3__recipe_service__["a" /* RecipeService */]])
+            __WEBPACK_IMPORTED_MODULE_3__recipe_service__["a" /* RecipeService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], RecipeEditComponent);
     return RecipeEditComponent;
 }());
@@ -433,6 +458,7 @@ var Recipe = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_ingredient_model__ = __webpack_require__("./src/app/shared/ingredient.model.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shopping_list_shopping_list_service__ = __webpack_require__("./src/app/shopping-list/shopping-list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -446,11 +472,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RecipeService = /** @class */ (function () {
     function RecipeService(shopService) {
         this.shopService = shopService;
+        this.recipesChanged = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["b" /* Subject */]();
         this.recipes = [
-            new __WEBPACK_IMPORTED_MODULE_0__recipe_model__["a" /* Recipe */]('Test', 'this a text', 'https://static-communitytable.parade.com/wp-content/uploads/2018/01/instantpot-cheeseburger-mac-1.jpg', [
+            new __WEBPACK_IMPORTED_MODULE_0__recipe_model__["a" /* Recipe */]('Tasty Schnitzel', 'A super-tasty Schnitzel - just awesome!', 'https://static-communitytable.parade.com/wp-content/uploads/2018/01/instantpot-cheeseburger-mac-1.jpg', [
                 new __WEBPACK_IMPORTED_MODULE_2__shared_ingredient_model__["a" /* Ingredient */]('Meat', 1),
                 new __WEBPACK_IMPORTED_MODULE_2__shared_ingredient_model__["a" /* Ingredient */]('French Fries', 20)
             ])
@@ -462,6 +490,22 @@ var RecipeService = /** @class */ (function () {
     };
     RecipeService.prototype.getRecipe = function (index) {
         return this.recipes[index];
+    };
+    RecipeService.prototype.addRecipe = function (recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+    };
+    RecipeService.prototype.updateRecipe = function (index, newRecipe) {
+        this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice());
+    };
+    RecipeService.prototype.setRecipes = function (recipes) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    };
+    RecipeService.prototype.deleteRecipe = function (index) {
+        this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice());
     };
     RecipeService.prototype.addIngredientsToShop = function (ingredients) {
         this.shopService.addListIngredients(ingredients);
@@ -487,7 +531,7 @@ module.exports = ""
 /***/ "./src/app/recipes/recipes-detail/recipes-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <img \n    [src] =\"recipe.imagePath\" \n    alt=\"{{recipe.name}}\" \n    class=\"img-responsive\"\n    style=\"max-height:250px\">\n  </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <h1>Recipe Name</h1>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div class=\"btn-group \">\n        <button type=\"button\" \n        class=\"btn btn-primary dropdown-toggle\" appDropdown>\n          Manager Recipe <span class=\"cart\"></span>\n        </button>\n        <ul class=\"dropdown-menu \"  appBasicHighlight>\n          <li><a (click)=\"onAddToShoppingList()\" style=\"cursor: pointer;\">\n            To Shopping List</a></li>\n          <li><a style=\"cursor: pointer;\" (click)=\"onEdit()\">Edit Recipe</a></li>\n          <li><a style=\"cursor: pointer;\" (click)=\"onDelete()\">Delete Recipe</a></li>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      {{recipe.description}}\n    </div>\n</div>\n  \n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <li class=\"list-group-item\"\n      *ngFor=\"let ingredient of recipe.ingredients\">\n    {{ ingredient.name }} : {{ingredient.amount}}\n    </li>\n    </div>\n</div>\n  \n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <img \n    [src] =\"recipe.imagePath\" \n    alt=\"{{recipe.name}}\" \n    class=\"img-responsive\"\n    style=\"max-height:250px\">\n  </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <h1>Recipe Name</h1>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div class=\"btn-group \">\n        <button type=\"button\" \n        class=\"btn btn-primary dropdown-toggle\" appDropdown>\n          Manager Recipe <span class=\"cart\"></span>\n        </button>\n        <ul class=\"dropdown-menu \"  appBasicHighlight>\n          <li><a (click)=\"onAddToShoppingList()\" style=\"cursor: pointer;\">\n            To Shopping List</a></li>\n          <li><a style=\"cursor: pointer;\" (click)=\"onEdit()\">Edit Recipe</a></li>\n          <li><a style=\"cursor: pointer;\" (click)=\"onDeleteRecipe()\">Delete Recipe</a></li>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      {{recipe.description}}\n    </div>\n</div>\n  \n<div class=\"row\">\n    <div class=\"col-xs-12\">\n      <li class=\"list-group-item\"\n      *ngFor=\"let ingredient of recipe.ingredients\">\n    {{ ingredient.name }} : {{ingredient.amount}}\n    </li>\n    </div>\n</div>\n  \n"
 
 /***/ }),
 
@@ -532,7 +576,9 @@ var RecipesDetailComponent = /** @class */ (function () {
     RecipesDetailComponent.prototype.onEdit = function () {
         this.router.navigate(['edit'], { relativeTo: this.route });
     };
-    RecipesDetailComponent.prototype.onDelete = function () {
+    RecipesDetailComponent.prototype.onDeleteRecipe = function () {
+        this.recipeService.deleteRecipe(this.id);
+        this.router.navigate(['/recipes']);
     };
     RecipesDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -650,11 +696,18 @@ var RecipesListComponent = /** @class */ (function () {
         this.route = route;
     }
     RecipesListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = this.recipeService.recipesChanged
+            .subscribe(function (recipes) {
+            _this.recipes = recipes;
+        });
         this.recipes = this.recipeService.getRecipes();
-        console.log(this.recipes);
     };
     RecipesListComponent.prototype.onNewRecipe = function () {
         this.router.navigate(['new'], { relativeTo: this.route });
+    };
+    RecipesListComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     RecipesListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -721,6 +774,64 @@ var RecipesComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__recipe_service__["a" /* RecipeService */]])
     ], RecipesComponent);
     return RecipesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/data-storage.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataStorageService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recipes_recipe_service__ = __webpack_require__("./src/app/recipes/recipe.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DataStorageService = /** @class */ (function () {
+    function DataStorageService(http, recipeService) {
+        this.http = http;
+        this.recipeService = recipeService;
+    }
+    DataStorageService.prototype.storeRecipes = function () {
+        return this.http.put('https://ng-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes());
+    };
+    DataStorageService.prototype.getRecipes = function () {
+        var _this = this;
+        this.http.get('https://ng-recipe-book.firebaseio.com/recipes.json')
+            .map(function (response) {
+            var recipes = response.json();
+            for (var _i = 0, recipes_1 = recipes; _i < recipes_1.length; _i++) {
+                var recipe = recipes_1[_i];
+                if (!recipe['ingredients']) {
+                    recipe['ingredients'] = [];
+                }
+            }
+            return recipes;
+        })
+            .subscribe(function (recipes) {
+            _this.recipeService.setRecipes(recipes);
+        });
+    };
+    DataStorageService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_3__recipes_recipe_service__["a" /* RecipeService */]])
+    ], DataStorageService);
+    return DataStorageService;
 }());
 
 
@@ -968,8 +1079,8 @@ var ShoppingListComponent = /** @class */ (function () {
 
 var ShoppingService = /** @class */ (function () {
     function ShoppingService() {
-        this.ingredientsChanged = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["a" /* Subject */]();
-        this.startedEditing = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["a" /* Subject */]();
+        this.ingredientsChanged = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["b" /* Subject */]();
+        this.startedEditing = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["b" /* Subject */]();
         this.ingredients = [
             new __WEBPACK_IMPORTED_MODULE_0__shared_ingredient_model__["a" /* Ingredient */]('apple', 10)
         ];
